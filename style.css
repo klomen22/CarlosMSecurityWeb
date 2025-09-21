@@ -720,3 +720,111 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+/* ========== SECCIÓN ¿POR QUÉ ELEGIRNOS? — MOBILE-FIRST ========== */
+
+#why-us {
+  background: rgba(5, 5, 20, 0.8);
+  padding: 4rem 0;
+  position: relative;
+}
+
+#why-us h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.why-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.why-card {
+  background: rgba(0, 30, 60, 0.7);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 247, 255, 0.4);
+  border-color: var(--neon-pink);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  display: block;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.why-card h3 {
+  font-size: 1.4rem;
+  color: var(--neon-cyan);
+  text-align: center;
+  margin: 1rem 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.why-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.terminal-log {
+  background: rgba(0, 0, 0, 0.4);
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: left;
+  border-left: 3px solid #0f0;
+  margin-top: 1.5rem;
+  white-space: pre-wrap;
+}
+
+/* Desktop: grid horizontal */
+@media (min-width: 769px) {
+  .why-grid {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .why-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+  }
+}
+
+/* Animación hover glitch sutil */
+.why-card:hover .card-icon {
+  animation: glitch 0.5s;
+}
+
+/* Si quieres animación al hacer scroll */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
