@@ -150,3 +150,17 @@ function handleScroll() {
 window.addEventListener('scroll', handleScroll);
 // Chequear al cargar por si ya está visible
 window.addEventListener('load', handleScroll);
+// Animación al hacer scroll (simple, sin librerías)
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('aos-animate');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('[data-aos]').forEach(el => {
+    observer.observe(el);
+  });
+});
