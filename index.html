@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CarlosMSecurityWeb | Seguridad Web Proactiva</title>
+  <meta name="description" content="Proteja su reputación, clientes e ingresos. Auditoría gratuita de 15 min. Sin complicaciones.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <!-- Hero -->
+  <header class="hero">
+<div class="counter-section">
+  <div class="container">
+    <div class="counter-item">
+      <span class="counter" id="systems-counter">0</span>
+      <span class="counter-label">> WEBs BLINDADAS</span>
+    </div>
+  </div>
+</div>
+<!-- LOGO CYBERPUNK SVG -->
+<div class="logo-container">
+  <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" class="cyber-logo">
+    <defs>
+      <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00f7ff"/>
+        <stop offset="50%" stop-color="#ff2a6d"/>
+        <stop offset="100%" stop-color="#00f7ff"/>
+      </linearGradient>
+      <filter id="glitch" x="-20%" y="-20%" width="140%" height="140%">
+        <feColorMatrix type="matrix" values="1 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 1 0" result="r"/>
+        <feOffset in="r" dx="-2" dy="0" result="r2"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0, 0 1 0 0 0, 0 0 0 0 0, 0 0 0 1 0" result="g"/>
+        <feOffset in="g" dx="2" dy="0" result="g2"/>
+        <feMerge>
+          <feMergeNode in="r2"/>
+          <feMergeNode in="g2"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <text x="50%" y="55%" text-anchor="middle" dy=".35em" class="logo-text">
+      CarlosMSecurityWeb
+    </text>
+  </svg>
+</div>
+    <div class="container">
+      <p class="subtitle">Su sitio es la cara digital de su negocio. ¿Sabe qué tan expuesto está?</p>
+      <button class="neon-button" id="cta-hero">🔓 Agenda tu AUDITORÍA GRATIS (15 min)</button>
+    </div>
+  </header>
+
+  <!-- El Problema -->
+  <section class="problem">
+    <div class="container">
+      <h2>EL ATAQUE QUE NO VE... PERO EXISTE</h2>
+      <div class="grid-2">
+        <div>
+          <p>“Si no vendo cosas, no me van a atacar”. <strong>Falso.</strong></p>
+          <ul>
+            <li>▶ 80% de los ataques son automatizados — no discriminan.</li>
+            <li>▶ Su blog o portafolio pueden ser puerta de entrada a otros sistemas.</li>
+            <li>▶ Un sitio comprometido = pérdida de tráfico, clientes y reputación.</li>
+            <li>▶ Multas por incumplimiento de privacidad (GDPR, CCPA).</li>
+          </ul>
+        </div>
+        <div class="terminal-alert">
+          > Usted no necesita ser un hacker para ser víctima.<br>
+          > Solo necesita ser ignorante… <span class="highlight">hasta hoy.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paquetes Matrix -->
+  <section class="packages">
+    <div class="container">
+      <h2>PLANES DE DEFENSA CIBERNÉTICA</h2>
+      <div class="matrix-grid">
+        <div class="matrix-header"></div>
+        <div class="matrix-header">SEGURO</div>
+        <div class="matrix-header">PROTEGIDO</div>
+        <div class="matrix-header">INVULNERABLE</div>
+
+        <div class="matrix-row">PLAN</div>
+        <div class="matrix-cell"><span class="badge-basic">Seguridad Esencial</span></div>
+        <div class="matrix-cell"><span class="badge-premium">Protección Total</span></div>
+        <div class="matrix-cell"><span class="badge-enterprise">Defensa Corporativa</span></div>
+
+        <div class="matrix-row">Ideal para</div>
+        <div class="matrix-cell">Blogs, Portafolios, Tiendas pequeñas</div>
+        <div class="matrix-cell">Tiendas online, SaaS, Datos de clientes</div>
+        <div class="matrix-cell">Empresas, Alto tráfico, Transacciones sensibles</div>
+
+        <div class="matrix-row">Escaneo de vulnerabilidades</div>
+        <div class="matrix-cell">✅ Semanal</div>
+        <div class="matrix-cell">✅ Semanal + Manual</div>
+        <div class="matrix-cell">✅ Semanal + Pruebas de Penetración</div>
+
+        <div class="matrix-row">WAF (Firewall Web)</div>
+        <div class="matrix-cell">✅ Básico</div>
+        <div class="matrix-cell">✅ Avanzado + Reglas personalizadas</div>
+        <div class="matrix-cell">✅ Inteligente + Detección de brechas</div>
+
+        <div class="matrix-row">Backup & Restauración</div>
+        <div class="matrix-cell">✅ Semanal (<2h)</div>
+        <div class="matrix-cell">✅ Diario + Notificación inmediata</div>
+        <div class="matrix-cell">✅ En tiempo real + Panel de control</div>
+
+        <div class="matrix-row">Reportes</div>
+        <div class="matrix-cell">✅ Mensual simple</div>
+        <div class="matrix-cell">✅ Mensual + Certificado de seguridad</div>
+        <div class="matrix-cell">✅ Tiempo real + Cumplimiento GDPR/CCPA</div>
+
+        <div class="matrix-row">Soporte</div>
+        <div class="matrix-cell">✅ Email</div>
+        <div class="matrix-cell">✅ Prioritario (<1h)</div>
+        <div class="matrix-cell">✅ 24/7 + Asesoría legal aliada</div>
+      </div>
+      <p class="note">*Todos los planes incluyen instalación y mantenimiento de SSL, actualización automática de CMS, y monitoreo proactivo.</p>
+    </div>
+  </section>
+
+  <!-- Por qué elegirnos -->
+  <section class="why-us">
+    <div class="container">
+      <h2>¿POR QUÉ ELEGIRNOS? (LO QUE NADIE MÁS DICE)</h2>
+      <div class="comparison-grid">
+        <div class="comparison-row">
+          <div class="comparison-cell">OTROS</div>
+          <div class="comparison-cell">NOSOTROS</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell">❌ Instalan un plugin y se van</div>
+          <div class="comparison-cell">✅ Gestionamos tu seguridad como servicio continuo — tú no haces nada</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell">❌ Te avisan si hay virus</div>
+          <div class="comparison-cell">✅ Prevenimos el virus antes de que aparezca</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell">❌ Cobran por hora</div>
+          <div class="comparison-cell">✅ Cobramos por paz mental — sin sorpresas</div>
+        </div>
+        <div class="comparison-row">
+          <div class="comparison-cell">❌ No entienden tu negocio</div>
+          <div class="comparison-cell">✅ Nos adaptamos a tu industria: médico, moda, cursos, fintech...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>LOGS DE CLIENTES SATISFECHOS</h2>
+      <div class="terminal-log">
+        <div class="log-entry">
+          <div class="prompt">[CLIENTE_0x3A] Laura M. @ Sabores Caseros</div>
+          <div class="message">> “Creía que mi sitio de recetas era inofensivo… hasta que Google me bloqueó por malware. Con CarlosMSecurityWeb, no solo lo limpiaron en 2 horas, sino que ahora sé que nunca volverá a pasar. Mi tráfico volvió y mis clientes me agradecen.”</div>
+          <div class="status">[FECHA: 2025-04-01] [STATUS: PROTEGIDO ✅]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Oferta Limitada -->
+  <section class="offer">
+    <div class="container">
+      <div class="alert-badge blink">🚨 OFERTA LIMITADA: 20% OFF primer mes + GARANTÍA 30 DÍAS</div>
+      <p>Si no ves valor, te devolvemos tu dinero. Sin preguntas.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2>AYUDA DEL SISTEMA (F1)</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">¿Qué pasa en la auditoría gratuita?</button>
+          <div class="accordion-content">
+            <p>En 15 minutos, le mostramos capturas REALES de vulnerabilidades en su sitio actual. Sin compromiso. Usted decide si actuar.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">¿Necesito conocimientos técnicos?</button>
+          <div class="accordion-content">
+            <p>Cero. Nosotros nos encargamos de todo. Usted solo recibe reportes claros y su sitio protegido.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">¿Qué CMS soportan?</button>
+          <div class="accordion-content">
+            <p>WordPress, Shopify, Joomla, Drupal, Laravel, React, Vue, y sitios estáticos. Si tiene un navegador, podemos protegerlo.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">¿Cómo empiezo?</button>
+          <div class="accordion-content">
+            <p>Agende su auditoría gratuita. Le enviaremos un link para reunión virtual. En 24h tendrá su diagnóstico y plan de acción.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>> INICIAR PROTOCOLO DE SEGURIDAD</h2>
+    <form
+      id="audit-form"
+      name="audit-form"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <!-- Campo honeypot para bots -->
+      <div style="display:none">
+        <label>
+          Don’t fill this out if you’re human: <input name="bot-field" />
+        </label>
+      </div>
+
+      <!-- Campo oculto requerido por Netlify -->
+      <input type="hidden" name="form-name" value="audit-form" />
+
+      <div class="form-group">
+        <label for="name">> nombre_empresa:</label>
+        <input type="text" id="name" name="nombre_empresa" required placeholder="Nombre de su empresa o proyecto">
+      </div>
+      <div class="form-group">
+        <label for="email">> email_contacto:</label>
+        <input type="email" id="email" name="email_contacto" required placeholder="donde enviar el diagnóstico">
+      </div>
+      <div class="form-group">
+        <label for="url">> url_sitio:</label>
+        <input type="url" id="url" name="url_sitio" required placeholder="https://sudominio.com">
+      </div>
+      <div class="form-group">
+        <label for="message">> motivo_consulta:</label>
+        <textarea id="message" name="motivo_consulta" rows="4" placeholder="¿Qué le preocupa de su sitio?"></textarea>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" id="consent" name="consentimiento" required>
+        <label for="consent">[X] Acepto recibir diagnóstico de seguridad vía email</label>
+      </div>
+      <button type="submit" class="neon-button">[INICIAR AUDITORÍA GRATIS]</button>
+      <div id="form-response"></div>
+    </form>
+  </div>
+</section>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="badge blink">🔐 100% OFF-THE-RECORD | GDPR/CCPA READY</div>
+      <div class="socials">
+        <a href="#">[GITHUB]</a>
+        <a href="#">[LINKEDIN]</a>
+        <a href="#">[TWITTER]</a>
+      </div>
+      <p class="copyright">© 2025 CarlosMSecurityWeb — Protegemos lo que construiste. <a href="#">Política de Privacidad</a></p>
+    </div>
+  </footer>
+
+<!-- ICONOS FLOTANTES DE CONTACTO -->
+<div class="floating-contact">
+  <a href="https://wa.me/573115935750" target="_blank" class="contact-icon whatsapp" title="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.347c-1.537-.717-2.685-.85-3.212-.917-.527-.067-.916-.056-1.205.04-.289.098-.838.36-1.567.767-.729.407-1.458.892-2.187 1.34-.729.448-1.332.77-1.793.837-.461.067-.838.033-1.136-.067-.297-.1-.694-.365-1.091-.764-.397-.399-.763-.897-1.09-1.463-.328-.565-.573-1.196-.738-1.827-.164-.631-.203-1.23-.118-1.729.085-.499.317-1.13.693-1.895.377-.764.874-1.596 1.44-2.428.566-.832 1.171-1.622 1.776-2.343.605-.721 1.191-1.352 1.718-1.851.527-.499.955-.887 1.283-1.156.328-.269.635-.477.922-.625a3.42 3.42 0 0 1 .838-.297c.272-.05.57-.05.867 0 .298.05.656.198 1.074.446.418.249 1.013.717 1.787 1.405.774.688 1.548 1.549 2.293 2.506.744.958 1.389 1.965 1.906 2.947.517.982.85 1.866.998 2.574.149.708.139 1.288.09 1.747-.05.459-.198.897-.446 1.294-.249.397-.625.785-1.124 1.122-.499.337-1.136.644-1.89.892-.755.248-1.56.411-2.344.477-.784.067-1.489.018-2.016-.15z"/>
+    </svg>
+  </a>
+  <a href="https://t.me/CarlosMSecurityWeb" target="_blank" class="contact-icon telegram" title="Telegram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 11.5l-2.5 6.5-1.3-4.5-5.5-3.5 10.3-1.5z"/>
+    </svg>
+  </a>
+  <a href="https://signal.me/#p/+tunumerodesignal" target="_blank" class="contact-icon signal" title="Signal">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+    </svg>
+  </a>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

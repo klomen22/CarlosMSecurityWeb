@@ -1,0 +1,26 @@
+# netlify.toml
+[build]
+  publish = "/"
+  command = "echo 'No build required'"
+
+[forms]
+  name = "audit-form"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[headers]
+  # Habilitar CORS si en el futuro usas APIs
+  /api/* = [
+    { key = "Access-Control-Allow-Origin", value = "*" },
+    { key = "Access-Control-Allow-Methods", value = "GET, POST, OPTIONS" }
+  ]
+
+  # Seguridad básica
+  /* = [
+    { key = "X-Frame-Options", value = "DENY" },
+    { key = "X-Content-Type-Options", value = "nosniff" },
+    { key = "Referrer-Policy", value = "strict-origin-when-cross-origin" }
+  ]
