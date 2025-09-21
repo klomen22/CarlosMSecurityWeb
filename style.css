@@ -645,129 +645,110 @@ footer {
     height: 32px;
   }
 }
-/* 📱 Mobile: Convertir tabla en tarjetas apiladas — CADA FILA = UN PLAN COMPLETO */
+/* 📱 Mobile: Convertir matrix-grid en tarjetas apiladas */
 @media (max-width: 768px) {
-  .package-table {
-    display: block !important;
-    width: 100% !important;
-    overflow-x: hidden !important;
+  .matrix-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0;
   }
 
-  .package-table table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    table-layout: fixed !important;
+  /* Ocultar la primera columna vacía (solo en móvil) */
+  .matrix-grid > .matrix-header:first-child,
+  .matrix-grid > .matrix-row:first-child {
+    display: none !important;
   }
 
-  /* Ocultar encabezados de columna (thead) */
-  .package-table thead {
-    display: none;
+  /* Cada "columna de plan" se convierte en una tarjeta */
+  .matrix-grid > .matrix-header:nth-child(2),
+  .matrix-grid > .matrix-header:nth-child(3),
+  .matrix-grid > .matrix-header:nth-child(4) {
+    order: -1; /* Mover encabezados al inicio de cada tarjeta */
+    background: rgba(0, 50, 80, 0.9);
+    color: #0ff;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-top: 3px solid #0ff;
+    border-radius: 8px 8px 0 0;
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 0 10px #0ff;
+    position: relative;
   }
 
-  /* Cada fila (tr) se convierte en una tarjeta de plan */
-  .package-table tbody tr {
-    display: block;
+  /* Contenedor de cada tarjeta */
+  .matrix-grid > .matrix-header:nth-child(2) ~ .matrix-cell:nth-child(2),
+  .matrix-grid > .matrix-header:nth-child(2) ~ .matrix-cell:nth-child(7),
+  .matrix-grid > .matrix-header:nth-child(2) ~ .matrix-cell:nth-child(12),
+  .matrix-grid > .matrix-header:nth-child(2) ~ .matrix-cell:nth-child(17),
+  .matrix-grid > .matrix-header:nth-child(2) ~ .matrix-cell:nth-child(22),
+  .matrix-grid > .matrix-header:nth-child(2) ~ .matrix-cell:nth-child(27) {
+    order: 1;
+  }
+
+  .matrix-grid > .matrix-header:nth-child(3) ~ .matrix-cell:nth-child(3),
+  .matrix-grid > .matrix-header:nth-child(3) ~ .matrix-cell:nth-child(8),
+  .matrix-grid > .matrix-header:nth-child(3) ~ .matrix-cell:nth-child(13),
+  .matrix-grid > .matrix-header:nth-child(3) ~ .matrix-cell:nth-child(18),
+  .matrix-grid > .matrix-header:nth-child(3) ~ .matrix-cell:nth-child(23),
+  .matrix-grid > .matrix-header:nth-child(3) ~ .matrix-cell:nth-child(28) {
+    order: 2;
+  }
+
+  .matrix-grid > .matrix-header:nth-child(4) ~ .matrix-cell:nth-child(4),
+  .matrix-grid > .matrix-header:nth-child(4) ~ .matrix-cell:nth-child(9),
+  .matrix-grid > .matrix-header:nth-child(4) ~ .matrix-cell:nth-child(14),
+  .matrix-grid > .matrix-header:nth-child(4) ~ .matrix-cell:nth-child(19),
+  .matrix-grid > .matrix-header:nth-child(4) ~ .matrix-cell:nth-child(24),
+  .matrix-grid > .matrix-header:nth-child(4) ~ .matrix-cell:nth-child(29) {
+    order: 3;
+  }
+
+  /* Agrupar cada plan en su propio contenedor visual */
+  [style*="order=\"1\""],
+  [style*="order=\"2\""],
+  [style*="order=\"3\""] {
+    background: rgba(0, 10, 20, 0.95);
+    padding: 1.2rem;
+    border: 1px solid #0ff;
+    border-radius: 0 0 8px 8px;
     margin-bottom: 2rem;
-    background: rgba(0, 10, 20, 0.9);
-    border: 2px solid #0ff;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-    border-radius: 12px;
-    padding: 1.5rem;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Etiquetas de fila (antes de cada celda) */
+  .matrix-grid > .matrix-cell:nth-child(n+2):not(.matrix-header) {
     position: relative;
-    animation: fadeInUp 0.6s ease-out;
+    padding: 12px 0;
+    border-bottom: 1px dashed #0ff;
   }
 
-  /* Animación sutil al cargar */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Cada celda (td) se muestra como un bloque con su etiqueta */
-  .package-table tbody td {
-    display: block;
-    padding: 10px 0 !important;
-    border: none !important;
-    text-align: left !important;
-    font-size: 0.95rem;
-    position: relative;
-  }
-
-  /* Mostrar la etiqueta antes del contenido */
-  .package-table tbody td:before {
+  .matrix-grid > .matrix-cell:nth-child(n+2):not(.matrix-header):before {
     content: attr(data-label) ": ";
     font-weight: bold;
-    color: #0ff;
+    color: #0f0;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    font-size: 0.8rem;
     letter-spacing: 1px;
     display: block;
     margin-bottom: 4px;
   }
 
-  /* Estilo para el nombre del plan (primera celda) */
-  .package-table tbody tr td:first-child {
-    font-size: 1.3rem !important;
+  /* Badges de plan */
+  .badge-basic, .badge-premium, .badge-enterprise {
+    display: block;
+    font-size: 1.1rem;
     font-weight: bold;
-    color: #fff;
-    text-align: center !important;
-    padding-top: 0 !important;
-    border-bottom: 2px solid #0ff;
-    margin-bottom: 1rem;
-    position: relative;
-  }
-
-  .package-table tbody tr td:first-child:before {
-    content: "🛡️ PLAN: " !important;
-    color: #0f0;
-    font-size: 1rem;
-  }
-
-  /* Botón de selección: ocupa todo el ancho */
-  .package-table tbody td:last-child {
-    padding-top: 1.5rem !important;
-    text-align: center !important;
-  }
-
-  .package-table tbody td:last-child .select-btn {
-    width: 100% !important;
-    padding: 14px !important;
-    font-size: 1.1rem !important;
-    background: #0ff;
-    color: #000;
-    border: none;
+    margin-bottom: 0.5rem;
+    padding: 6px 12px;
     border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
   }
 
-  .package-table tbody td:last-child .select-btn:hover {
-    background: #fff;
-    color: #000;
-    box-shadow: 0 0 20px #fff;
-  }
-
-  /* Badge "Popular" o "Recomendado" */
-  .package-table .popular-badge {
-    position: absolute;
-    top: -10px;
-    right: 15px;
-    background: #ff0066;
-    color: #000;
-    padding: 4px 12px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 20px;
-    z-index: 10;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 0 10px #ff0066;
-  }
+  .badge-basic { background: #003366; color: #0ff; }
+  .badge-premium { background: #330066; color: #ff00cc; }
+  .badge-enterprise { background: #660000; color: #ff6600; }
 }
