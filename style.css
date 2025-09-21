@@ -645,3 +645,129 @@ footer {
     height: 32px;
   }
 }
+/* 📱 Mobile: Convertir tabla en tarjetas apiladas — CADA FILA = UN PLAN COMPLETO */
+@media (max-width: 768px) {
+  .package-table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .package-table table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+  }
+
+  /* Ocultar encabezados de columna (thead) */
+  .package-table thead {
+    display: none;
+  }
+
+  /* Cada fila (tr) se convierte en una tarjeta de plan */
+  .package-table tbody tr {
+    display: block;
+    margin-bottom: 2rem;
+    background: rgba(0, 10, 20, 0.9);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Animación sutil al cargar */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Cada celda (td) se muestra como un bloque con su etiqueta */
+  .package-table tbody td {
+    display: block;
+    padding: 10px 0 !important;
+    border: none !important;
+    text-align: left !important;
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  /* Mostrar la etiqueta antes del contenido */
+  .package-table tbody td:before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    color: #0ff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Estilo para el nombre del plan (primera celda) */
+  .package-table tbody tr td:first-child {
+    font-size: 1.3rem !important;
+    font-weight: bold;
+    color: #fff;
+    text-align: center !important;
+    padding-top: 0 !important;
+    border-bottom: 2px solid #0ff;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .package-table tbody tr td:first-child:before {
+    content: "🛡️ PLAN: " !important;
+    color: #0f0;
+    font-size: 1rem;
+  }
+
+  /* Botón de selección: ocupa todo el ancho */
+  .package-table tbody td:last-child {
+    padding-top: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .package-table tbody td:last-child .select-btn {
+    width: 100% !important;
+    padding: 14px !important;
+    font-size: 1.1rem !important;
+    background: #0ff;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .package-table tbody td:last-child .select-btn:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 20px #fff;
+  }
+
+  /* Badge "Popular" o "Recomendado" */
+  .package-table .popular-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: #ff0066;
+    color: #000;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px #ff0066;
+  }
+}
