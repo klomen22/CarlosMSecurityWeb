@@ -229,11 +229,11 @@
     </div>
   </section>
 
-  <!-- Formulario -->
+ <!-- Formulario -->
 <section class="contact" id="contact">
   <div class="container">
     <h2>> INICIAR PROTOCOLO DE SEGURIDAD</h2>
-    <form id="audit-form">
+    <form id="audit-form" action="https://script.google.com/macros/s/AKfycbw6WUDjvKemJVBQ1YovERlqJ6PS7aM86WIgvO4y35kZ3EWuLHAjYF_JHuRgKPQ2Z1M2dQ/exec" method="GET" target="hidden_iframe">
       <div class="form-group">
         <label for="name">> nombre_empresa:</label>
         <input 
@@ -282,10 +282,13 @@
         <label for="consent">[X] Acepto recibir diagnóstico de seguridad vía email</label>
       </div>
       <button type="submit" class="neon-button">[INICIAR AUDITORÍA GRATIS]</button>
-      <div id="form-response" class="success-message hidden">
-        > ¡PROTOCOLO INICIADO! Revisa tu terminal (email) en 60s.
-      </div>
+      
+      <!-- IFRAME OCULTO -->
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
     </form>
+    <div id="form-response" class="success-message hidden">
+      > ¡PROTOCOLO INICIADO! Revisa tu terminal (email) en 60s.
+    </div>
   </div>
 </section>
   <!-- Footer -->
