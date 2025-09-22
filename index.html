@@ -229,16 +229,20 @@
     </div>
   </section>
 
- <!-- Formulario -->
+<!-- Formulario -->
 <section class="contact" id="contact">
   <div class="container">
     <h2>> INICIAR PROTOCOLO DE SEGURIDAD</h2>
-    <form id="audit-form" action="https://script.google.com/macros/s/AKfycby5gSV8v-ix2CqqAaA0iICPq7UKBHz3ftHAHd3zQZ9eZ0qj-xwRXQLrnYXeSiCvamNGBA/exec" method="GET" target="hidden_iframe">
+    <form
+      id="audit-form"
+      action="https://formspree.io/f/mdkwndnv"  <!-- ⚠️ PEGA TU URL AQUÍ -->
+      method="POST"
+    >
       <div class="form-group">
-        <label for="name">> nombre_empresa:</label>
+        <label for="nombre_empresa">> nombre_empresa:</label>
         <input 
           type="text" 
-          id="name" 
+          id="nombre_empresa" 
           name="nombre_empresa" 
           required 
           placeholder="Nombre de su empresa o proyecto"
@@ -246,10 +250,10 @@
         >
       </div>
       <div class="form-group">
-        <label for="email">> email_contacto:</label>
+        <label for="email_contacto">> email_contacto:</label>
         <input 
           type="email" 
-          id="email" 
+          id="email_contacto" 
           name="email_contacto" 
           required 
           placeholder="donde enviar el diagnóstico"
@@ -257,10 +261,10 @@
         >
       </div>
       <div class="form-group">
-        <label for="url">> url_sitio:</label>
+        <label for="url_sitio">> url_sitio:</label>
         <input 
           type="url" 
-          id="url" 
+          id="url_sitio" 
           name="url_sitio" 
           required 
           placeholder="https://sudominio.com"
@@ -268,9 +272,9 @@
         >
       </div>
       <div class="form-group">
-        <label for="message">> motivo_consulta:</label>
+        <label for="motivo_consulta">> motivo_consulta:</label>
         <textarea 
-          id="message" 
+          id="motivo_consulta" 
           name="motivo_consulta" 
           rows="4" 
           placeholder="¿Qué le preocupa de su sitio?"
@@ -278,17 +282,14 @@
         ></textarea>
       </div>
       <div class="form-group checkbox">
-        <input type="checkbox" id="consent" name="consentimiento" required>
-        <label for="consent">[X] Acepto recibir diagnóstico de seguridad vía email</label>
+        <input type="checkbox" id="consentimiento" name="consentimiento" required>
+        <label for="consentimiento">[X] Acepto recibir diagnóstico de seguridad vía email</label>
       </div>
       <button type="submit" class="neon-button">[INICIAR AUDITORÍA GRATIS]</button>
-      
-      <!-- IFRAME OCULTO -->
-      <iframe name="hidden_iframe" style="display:none;"></iframe>
+      <div id="form-response" class="success-message hidden">
+        > ¡PROTOCOLO INICIADO! Revisa tu terminal (email) en 60s.
+      </div>
     </form>
-    <div id="form-response" class="success-message hidden">
-      > ¡PROTOCOLO INICIADO! Revisa tu terminal (email) en 60s.
-    </div>
   </div>
 </section>
   <!-- Footer -->
