@@ -828,3 +828,23 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+.success-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #002200;
+  color: #00ff66;
+  font-family: 'Courier New', monospace;
+  border-left: 4px solid #00ff66;
+  text-align: center;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.hidden {
+  display: none !important;
+}
