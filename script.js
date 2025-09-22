@@ -164,3 +164,50 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 });
+document.getElementById('audit-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  // Validar checkbox
+  if (!document.getElementById('consent').checked) {
+    alert('> Debes aceptar recibir el diagnóstico por email.');
+    return;
+  }
+
+  const formData = new FormData(e.target);
+  const nombreEmpresa = formData.get('nombre_empresa');
+  const emailContacto = formData.get('email_contacto');
+  const urlSitio = formData.get('url_sitio');
+  const motivoConsulta = formData.get('motivo_consulta');
+
+  if (!nombreEmpresa || !emailContacto || !urlSitio) {
+    alert('> Todos los campos son requeridos');
+    return;
+  }
+
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycby7nuKkhn_yMeM5wdH2sPs8GBODrhAImkl7Qt4O-0RfmEoqxFTEj1pgwHpr4ME5CLCQ0g/exec', { // ⚠️ REEMPLAZA CON TU URL
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams({
+        nombre_empresa: nombreEmpresa,
+        email_contacto: emailContacto,
+        url_sitio: urlSitio,
+        motivo_consulta: motivoConsulta
+      })
+    });
+
+    // Mostrar mensaje de éxito
+    const responseDiv = document.getElementById('form-response');
+    responseDiv.classList.remove('hidden');
+    e.target.reset();
+    document.getElementById('consent').checked = false;
+
+    setTimeout(() => {
+      responseDiv.classList.add('hidden');
+    }, 5000);
+
+  } catch (error) {
+    alert('> Error al enviar. Intenta de nuevo.');
+    console.error(error);
+  }
+});
