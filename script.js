@@ -3,7 +3,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
   button.addEventListener('click', () => {
     const item = button.parentElement;
     const isActive = item.classList.contains('active');
-
+    
     // Cierra todos
     document.querySelectorAll('.accordion-item').forEach(el => {
       el.classList.remove('active');
