@@ -41,19 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
         'Accept': 'application/json'
       }
     })
-    .then(response => {
-      if (response.ok) {
-        // Mostrar mensaje de éxito
-        const responseDiv = document.getElementById('form-response');
-        if (responseDiv) {
-          responseDiv.classList.remove('hidden');
-        }
-
-        // Resetear formulario
-        form.reset();
-        if (consentCheckbox) {
-          consentCheckbox.checked = false;
-        }
+   .then(response => {
+  if (response.ok) {
+    window.location.href = 'gracias.html';
+  } else {
+    return response.json().then(data => {
+      throw new Error(data.error || 'Error al enviar. Intenta de nuevo.');
+    });
+  }
+})
 
         // Ocultar mensaje después de 5 segundos
         setTimeout(() => {
