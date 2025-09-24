@@ -16,7 +16,7 @@ document.querySelectorAll('.accordion-header').forEach(button => {
   });
 });
 
-// FORM SUBMISSION (con Formspree + feedback visual)
+// FORM SUBMISSION (con Formspree + redirección)
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('audit-form');
   if (!form) return;
@@ -24,14 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Validar checkbox de consentimiento (UX mejorada)
     const consentCheckbox = document.getElementById('consentimiento');
     if (consentCheckbox && !consentCheckbox.checked) {
       alert('> Debes aceptar recibir el diagnóstico por email.');
       return;
     }
 
-    // Enviar datos a Formspree
     const formData = new FormData(form);
 
     fetch(form.action, {
@@ -41,22 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         'Accept': 'application/json'
       }
     })
-   .then(response => {
-  if (response.ok) {
-    window.location.href = 'gracias.html';
-  } else {
-    return response.json().then(data => {
-      throw new Error(data.error || 'Error al enviar. Intenta de nuevo.');
-    });
-  }
-})
-
-        // Ocultar mensaje después de 5 segundos
-        setTimeout(() => {
-          if (responseDiv) {
-            responseDiv.classList.add('hidden');
-          }
-        }, 5000);
+    .then(response => {
+      if (response.ok) {
+        window.location.href = 'gracias.html';
       } else {
         return response.json().then(data => {
           throw new Error(data.error || 'Error al enviar. Intenta de nuevo.');
