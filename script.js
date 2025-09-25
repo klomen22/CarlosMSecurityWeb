@@ -113,3 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 });
+// Evento de conversión: formulario enviado
+if (typeof gtag !== 'undefined') {
+  gtag('event', 'generate_lead', {
+    'value': 1,
+    'currency': 'MXN'
+  });
+}
