@@ -40,14 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     })
     .then(response => {
-      if (response.ok) {
-        window.location.href = 'gracias.html';
-      } else {
-        return response.json().then(data => {
-          throw new Error(data.error || 'Error al enviar. Intenta de nuevo.');
-        });
-      }
-    })
+  if (response.ok) {
+    // Enviar evento de conversión a Google Analytics 4
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', {
+        'value': 1,
+        'currency': 'MXN'
+      });
+    }
+    window.location.href = 'gracias.html';
+  } else {
+    return response.json().then(data => {
+      throw new Error(data.error || 'Error al enviar. Intenta de nuevo.');
+    });
+  }
+})
     .catch(error => {
       alert('> Error: ' + error.message);
     });
