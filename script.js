@@ -127,3 +127,15 @@ if (typeof gtag !== 'undefined') {
     'currency': 'MXN'
   });
 }
+// Pre-rellenar motivo_consulta al seleccionar un plan
+document.querySelectorAll('.plan-cta').forEach(button => {
+  button.addEventListener('click', () => {
+    const plan = button.getAttribute('data-plan');
+    const textarea = document.getElementById('motivo_consulta');
+    if (textarea) {
+      textarea.value = `Estoy interesado en el plan: ${plan}`;
+    }
+    // Hacer scroll suave al formulario
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+});
