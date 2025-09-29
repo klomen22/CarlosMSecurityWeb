@@ -1,0 +1,2 @@
+# Forzar HTTPS siempre
+http://carlosmsecurityweb.pages.dev/* https://carlosmsecurityweb.pages.dev/:splat 301!
